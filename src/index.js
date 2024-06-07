@@ -35,3 +35,5 @@ prettyPrint(tree.root);
 //console.log(tree.levelOrder());
 
 //tree.inOrder((node) => console.log(node.data));
+
+console.log(tree.postOrder());

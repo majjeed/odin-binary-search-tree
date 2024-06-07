@@ -166,6 +166,52 @@ class Tree {
 
     this.inOrderHelper(node.right, result, callback);
   }
+
+  preOrder(callback) {
+    if (this.root === null) return [];
+
+    let result = [];
+    this.preOrderHelper(this.root, result, callback);
+
+    return result;
+  }
+
+  preOrderHelper(node, result, callback) {
+    if (node === null) return;
+
+    if (callback) {
+      callback(node);
+    } else {
+      result.push(node.data);
+    }
+
+    this.preOrderHelper(node.left, result, callback);
+
+    this.preOrderHelper(node.right, result, callback);
+  }
+
+  postOrder(callback) {
+    if (this.root === null) return [];
+
+    let result = [];
+    this.postOrderHelper(this.root, result, callback);
+
+    return result;
+  }
+
+  postOrderHelper(node, result, callback) {
+    if (node === null) return;
+
+    this.postOrderHelper(node.left, result, callback);
+
+    this.postOrderHelper(node.right, result, callback);
+
+    if (callback) {
+      callback(node);
+    } else {
+      result.push(node.data);
+    }
+  }
 }
 
 export { Tree };
