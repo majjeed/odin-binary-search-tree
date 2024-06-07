@@ -212,6 +212,13 @@ class Tree {
       result.push(node.data);
     }
   }
+
+  height(node) {
+    if (node === null) return -1;
+    let leftHeight = this.height(node.left);
+    let rightHeight = this.height(node.right);
+    return Math.max(leftHeight, rightHeight) + 1;
+  }
 }
 
 export { Tree };

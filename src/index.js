@@ -36,4 +36,6 @@ prettyPrint(tree.root);
 
 //tree.inOrder((node) => console.log(node.data));
 
-console.log(tree.postOrder());
+//console.log(tree.postOrder());
+
+//console.log(tree.height(tree.root));
