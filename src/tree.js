@@ -145,7 +145,7 @@ class Tree {
   }
 
   levelOrderHelper(arr, queue) {
-    if (queue.length === 0) return;
+    if (queue.length === 0) return arr;
 
     let discoveredNode = queue.shift();
 
@@ -159,9 +159,7 @@ class Tree {
       queue.push(discoveredNode.right);
     }
 
-    this.levelOrderHelper(arr, queue);
-
-    return arr;
+    return this.levelOrderHelper(arr, queue);
   }
 }
 
