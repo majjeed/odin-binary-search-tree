@@ -55,6 +55,53 @@ class Tree {
       }
     }
   }
+
+  deleteItem(value) {
+    //delete leaf node
+    //delete node with one child
+    //delete node with two children
+    this.root = this.deleteRecursively(this.root, value);
+  }
+
+  deleteRecursively(node, value) {
+    if (node === null) {
+      return node;
+    }
+
+    if (value < node.data) {
+      node.left = this.deleteRecursively(node.left, value);
+    } else if (value > node.data) {
+      node.right = this.deleteRecursively(node.right, value);
+    } else {
+      if (node.left === null) {
+        return node.right;
+      } else if (node.right === null) {
+        return node.left;
+      }
+
+      node.data = this.minValue(node.right);
+
+      node.right = this.deleteRecursively(node.right, node.data);
+    }
+    return node;
+  }
+
+  minValue(node) {
+    let minv = node.data;
+    while (node.left !== null) {
+      minv = node.left.data;
+      node = node.left;
+    }
+    return minv;
+  }
+
+  inorder(node) {
+    if (node !== null) {
+      this.inorder(node.left);
+      console.log(node.data + " ");
+      this.inorder(node.right);
+    }
+  }
 }
 
 export { Tree };

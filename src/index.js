@@ -18,6 +18,14 @@ const tree = new Tree(array);
 
 prettyPrint(tree.root);
 
-tree.insert(6);
+//tree.insert(6);
 
-prettyPrint(tree.root);
+//prettyPrint(tree.root);
+
+//tree.inorder(tree.root);
+
+//console.log(tree.minValue(tree.root.left.right));
+
+//tree.deleteItem(8);
+
+//prettyPrint(tree.root);
