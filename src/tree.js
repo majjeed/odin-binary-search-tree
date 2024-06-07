@@ -102,6 +102,22 @@ class Tree {
       this.inorder(node.right);
     }
   }
+
+  find(value) {
+    return this.finderHelper(this.root, value);
+  }
+
+  finderHelper(node, value) {
+    if (node === null) {
+      return null;
+    } else if (node.data === value) {
+      return node;
+    } else if (value < node.data) {
+      return this.finderHelper(node.left, value);
+    } else if (value > node.data) {
+      return this.finderHelper(node.right, value);
+    }
+  }
 }
 
 export { Tree };
