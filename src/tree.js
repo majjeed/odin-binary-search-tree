@@ -31,6 +31,30 @@ class Tree {
     node.right = this.sortedArrayToBST(arr, mid + 1, end);
     return node;
   }
+
+  insert(value) {
+    let newNode = new Node(value);
+    let currentNode = this.root;
+    let inserted = false;
+
+    while (!inserted) {
+      if (value < currentNode.data) {
+        if (currentNode.left === null) {
+          currentNode.left = newNode;
+          inserted = true;
+        } else {
+          currentNode = currentNode.left;
+        }
+      } else {
+        if (currentNode.right === null) {
+          currentNode.right = newNode;
+          inserted = true;
+        } else {
+          currentNode = currentNode.right;
+        }
+      }
+    }
+  }
 }
 
 export { Tree };
