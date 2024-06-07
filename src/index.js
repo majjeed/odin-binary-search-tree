@@ -22,8 +22,6 @@ prettyPrint(tree.root);
 
 //prettyPrint(tree.root);
 
-//tree.inorder(tree.root);
-
 //console.log(tree.minValue(tree.root.left.right));
 
 //tree.deleteItem(8);
@@ -32,8 +30,8 @@ prettyPrint(tree.root);
 
 //console.log(tree.find(324));
 
-// console.log(tree.inOrderLog());
-
 //tree.levelOrder((node) => console.log(node.data));
 
 //console.log(tree.levelOrder());
+
+//tree.inOrder((node) => console.log(node.data));

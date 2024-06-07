@@ -95,14 +95,6 @@ class Tree {
     return minv;
   }
 
-  inorder(node) {
-    if (node !== null) {
-      this.inorder(node.left);
-      console.log(node.data + " ");
-      this.inorder(node.right);
-    }
-  }
-
   find(value) {
     return this.finderHelper(this.root, value);
   }
@@ -116,23 +108,6 @@ class Tree {
       return this.finderHelper(node.left, value);
     } else if (value > node.data) {
       return this.finderHelper(node.right, value);
-    }
-  }
-
-  inOrderLog() {
-    return this.inOrderHelper(this.root, []);
-  }
-
-  inOrderHelper(node, arr) {
-    if (node !== null) {
-      if (node.left !== null) {
-        arr = this.inOrderHelper(node.left, arr);
-      }
-      arr.push(node.data);
-      if (node.right !== null) {
-        arr = this.inOrderHelper(node.right, arr);
-      }
-      return arr;
     }
   }
 
@@ -167,6 +142,29 @@ class Tree {
     }
 
     this.levelOrderHelper(nextQueue, result, callback);
+  }
+
+  inOrder(callback) {
+    if (this.root === null) return [];
+
+    let result = [];
+    this.inOrderHelper(this.root, result, callback);
+
+    return result;
+  }
+
+  inOrderHelper(node, result, callback) {
+    if (node === null) return;
+
+    this.inOrderHelper(node.left, result, callback);
+
+    if (callback) {
+      callback(node);
+    } else {
+      result.push(node.data);
+    }
+
+    this.inOrderHelper(node.right, result, callback);
   }
 }
 
