@@ -136,30 +136,37 @@ class Tree {
     }
   }
 
-  levelOrder() {
+  levelOrder(callback) {
     if (this.root === null) return [];
 
-    let arr = [];
+    let result = [];
+    this.levelOrderHelper([this.root], result, callback);
 
-    return this.levelOrderHelper(arr, [this.root]);
+    return result;
   }
 
-  levelOrderHelper(arr, queue) {
-    if (queue.length === 0) return arr;
+  levelOrderHelper(queue, result, callback) {
+    if (queue.length === 0) return;
 
-    let discoveredNode = queue.shift();
+    let nextQueue = [];
 
-    arr.push(discoveredNode.data);
+    for (let node of queue) {
+      if (callback) {
+        callback(node);
+      } else {
+        result.push(node.data);
+      }
 
-    if (discoveredNode.left !== null) {
-      queue.push(discoveredNode.left);
+      if (node.left !== null) {
+        nextQueue.push(node.left);
+      }
+
+      if (node.right !== null) {
+        nextQueue.push(node.right);
+      }
     }
 
-    if (discoveredNode.right !== null) {
-      queue.push(discoveredNode.right);
-    }
-
-    return this.levelOrderHelper(arr, queue);
+    this.levelOrderHelper(nextQueue, result, callback);
   }
 }
 
