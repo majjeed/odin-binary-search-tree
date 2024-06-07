@@ -43,3 +43,17 @@ prettyPrint(tree.root);
 //console.log(tree.depth(tree.root.right.right.right));
 
 //console.log(tree.isBalanced(tree.root));
+
+//Rebalance testing
+/*
+tree.insert(6);
+tree.insert(6);
+tree.insert(6);
+tree.insert(6);
+console.log(tree.isBalanced(tree.root));
+prettyPrint(tree.root);
+
+tree.rebalance();
+console.log(tree.isBalanced(tree.root));
+prettyPrint(tree.root);
+*/

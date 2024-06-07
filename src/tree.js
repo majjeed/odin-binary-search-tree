@@ -244,6 +244,13 @@ class Tree {
       return false;
     }
   }
+
+  rebalance() {
+    if (!this.isBalanced()) {
+      let arr = this.inOrder();
+      this.root = this.buildTree(arr);
+    }
+  }
 }
 
 export { Tree };
