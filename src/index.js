@@ -39,3 +39,7 @@ prettyPrint(tree.root);
 //console.log(tree.postOrder());
 
 //console.log(tree.height(tree.root));
+
+//console.log(tree.depth(tree.root.right.right.right));
+
+//console.log(tree.isBalanced(tree.root));
