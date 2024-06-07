@@ -118,6 +118,51 @@ class Tree {
       return this.finderHelper(node.right, value);
     }
   }
+
+  inOrderLog() {
+    return this.inOrderHelper(this.root, []);
+  }
+
+  inOrderHelper(node, arr) {
+    if (node !== null) {
+      if (node.left !== null) {
+        arr = this.inOrderHelper(node.left, arr);
+      }
+      arr.push(node.data);
+      if (node.right !== null) {
+        arr = this.inOrderHelper(node.right, arr);
+      }
+      return arr;
+    }
+  }
+
+  levelOrder() {
+    if (this.root === null) return [];
+
+    let arr = [];
+
+    return this.levelOrderHelper(arr, [this.root]);
+  }
+
+  levelOrderHelper(arr, queue) {
+    if (queue.length === 0) return;
+
+    let discoveredNode = queue.shift();
+
+    arr.push(discoveredNode.data);
+
+    if (discoveredNode.left !== null) {
+      queue.push(discoveredNode.left);
+    }
+
+    if (discoveredNode.right !== null) {
+      queue.push(discoveredNode.right);
+    }
+
+    this.levelOrderHelper(arr, queue);
+
+    return arr;
+  }
 }
 
 export { Tree };

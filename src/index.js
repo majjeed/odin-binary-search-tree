@@ -31,3 +31,7 @@ prettyPrint(tree.root);
 //prettyPrint(tree.root);
 
 //console.log(tree.find(324));
+
+// console.log(tree.inOrderLog());
+
+//console.log(tree.levelOrder());
